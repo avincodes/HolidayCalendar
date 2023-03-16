@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_primary"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins"
+                android:text="Welcome to"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/welcome"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/app_name"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_italic"
+                android:text="Today is"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextClock
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/now"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/poppins_bold"
+                android:format12Hour="EEEE, MMMM dd, yyyy"
+                android:format24Hour="EEEE, MMMM dd, yyyy"
+                android:text="EEEE, MMMM dd, yyyy"
+                android:textColor="@color/white"
+                android:translationY="-10dp"
+                android:textSize="25sp" />
+
+            <TextClock
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/poppins_bold"
+                android:format12Hour="hh:mm:ss a"
+                android:format24Hour="hh:mm:ss a"
+                android:text="hh:mm:ss a"
+                android:textColor="@color/white"
+                android:translationY="-20dp"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txtCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins"
+                android:text="Country Name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_below="@id/time"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTodayHoliday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/white"
+                style="@style/Widget.Material3.CardView.Filled">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/holiday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/txtHoliday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No Holiday Today"
+                        android:textSize="32sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/black"
+                        android:layout_below="@id/holiday"/>
+
+                    <TextClock
+                        android:id="@+id/txtTodayDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today Date"
+                        android:format12Hour="EEEE, MMMM dd, yyyy"
+                        android:format24Hour="EEEE, MMMM dd, yyyy"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/txtHoliday"/>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnLocalHolidays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Local Holidays"
+                android:layout_weight="1"
+                app:icon="@drawable/calendar"
+                app:iconPadding="15dp"
+                app:iconGravity="textStart"
+                app:iconSize="24dp"
+                android:layout_margin="10dp"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"/>
+
+            <Button
+                android:id="@+id/btnWorldHolidays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="World Holidays"
+                android:layout_weight="1"
+                app:icon="@drawable/world"
+                app:iconPadding="15dp"
+                app:iconGravity="textStart"
+                app:iconSize="24dp"
+                android:layout_margin="10dp"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/txtHolidaysInThisMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Holiday in this Month"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewHolidayInThisMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtHolidaysInThisMonth"
+                android:layout_marginTop="10dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
